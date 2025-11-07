@@ -18,16 +18,13 @@ def train_model(X_train, y_train):
 
 def evaluate_model(model, X_train, X_test, y_train, y_test):
     """Evaluate model performance on train and test sets"""
-    # Predictions
     y_train_pred = model.predict(X_train)
     y_test_pred = model.predict(X_test)
     
-    # Training metrics
     train_r2 = r2_score(y_train, y_train_pred)
     train_rmse = math.sqrt(mean_squared_error(y_train, y_train_pred))
     train_mae = mean_absolute_error(y_train, y_train_pred)
     
-    # Testing metrics
     test_r2 = r2_score(y_test, y_test_pred)
     test_rmse = math.sqrt(mean_squared_error(y_test, y_test_pred))
     test_mae = mean_absolute_error(y_test, y_test_pred)
