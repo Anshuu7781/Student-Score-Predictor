@@ -10,15 +10,12 @@ import plotly.graph_objects as go
 import sys
 import os
 
-# Add the project directory to Python path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-# Now import from src
 from src.data_preparation import load_data, get_data_statistics, get_correlation_matrix
 from src.model_training import load_model, get_feature_importance
 from src.prediction import predict_score, get_performance_category, get_recommendations
 
-# Page configuration
 st.set_page_config(
     page_title="Student Score Predictor",
     page_icon="🎓",
@@ -26,7 +23,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for better styling
 st.markdown("""
     <style>
     .main {
@@ -50,7 +46,6 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# Load model and data
 @st.cache_resource
 def load_resources():
     model, scaler = load_model()
@@ -59,12 +54,10 @@ def load_resources():
 
 model, scaler, df = load_resources()
 
-# Header
 st.title("🎓 Student Score Prediction System")
 st.markdown("### Predict student performance using Machine Learning")
 st.markdown("---")
 
-# Sidebar
 with st.sidebar:
     st.header("📊 Navigation")
     page = st.radio("Go to", ["🏠 Home", "🔮 Predict Score", "📈 Data Analytics",])
@@ -73,7 +66,6 @@ with st.sidebar:
     st.markdown("### 📚 Model Info")
     st.info("**Model:** Linear Regression\n\n**Accuracy:** ~78% R² Score")
 
-# HOME PAGE
 if page == "🏠 Home":
     col1, col2 = st.columns([2, 1])
     
@@ -105,7 +97,6 @@ if page == "🏠 Home":
     
     st.markdown("---")
     
-    # Quick Stats
     st.header("📊 Dataset Overview")
     col1, col2, col3, col4 = st.columns(4)
     
@@ -118,7 +109,6 @@ if page == "🏠 Home":
     with col4:
         st.metric("Lowest Score", f"{df['final_score'].min():.1f}")
 
-# PREDICTION PAGE
 elif page == "🔮 Predict Score":
     st.header("🔮 Predict Student Score")
     st.markdown("Enter student information to get score prediction")
@@ -137,7 +127,6 @@ elif page == "🔮 Predict Score":
     st.markdown("---")
     
     if st.button("🎯 Predict Score", use_container_width=True):
-        # Make prediction
         predicted_score = predict_score(
             model, scaler, study_hours, previous_score, 
             attendance, sleep_hours, extracurricular
@@ -145,7 +134,6 @@ elif page == "🔮 Predict Score":
         
         category, emoji, color = get_performance_category(predicted_score)
         
-        # Display prediction
         st.markdown(f"""
         <div style='background-color: {color}; padding: 30px; border-radius: 15px; text-align: center;'>
             <h1 style='color: white; margin: 0;'>{emoji} Predicted Score: {predicted_score:.2f}</h1>
@@ -155,7 +143,6 @@ elif page == "🔮 Predict Score":
         
         st.markdown("---")
         
-        # Recommendations
         st.subheader("💡 Personalized Recommendations")
         recommendations = get_recommendations(
             study_hours, previous_score, attendance, sleep_hours, extracurricular
@@ -164,7 +151,6 @@ elif page == "🔮 Predict Score":
         for rec in recommendations:
             st.info(rec)
         
-        # Comparison Chart
         st.markdown("---")
         st.subheader("📊 How You Compare")
         
@@ -188,7 +174,6 @@ elif page == "🔮 Predict Score":
         fig.update_layout(barmode='group', height=400, title="Your Input vs Dataset Average")
         st.plotly_chart(fig, use_container_width=True)
 
-# DATA ANALYTICS PAGE
 elif page == "📈 Data Analytics":
     st.header("📈 Data Analytics & Insights")
     
