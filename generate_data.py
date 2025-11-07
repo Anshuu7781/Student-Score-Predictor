@@ -2,10 +2,8 @@ import pandas as pd
 import numpy as np
 import os
 
-# Set random seed for reproducibility
 np.random.seed(42)
 
-# Generate sample data for 100 students
 n_students = 100
 
 data = {
@@ -16,10 +14,8 @@ data = {
     'extracurricular': np.random.randint(0, 5, n_students)
 }
 
-# Create DataFrame
 df = pd.DataFrame(data)
 
-# Create target variable (final_score) with some correlation to features
 df['final_score'] = (
     df['study_hours'] * 3 +
     df['previous_score'] * 0.4 +
@@ -29,7 +25,6 @@ df['final_score'] = (
     np.random.randint(-10, 10, n_students)
 ).clip(0, 100)
 
-# Save the dataset
 os.makedirs('data', exist_ok=True)
 df.to_csv('data/student_data.csv', index=False)
 
