@@ -23,16 +23,12 @@ def predict_score(model, scaler, study_hours, previous_score, attendance, sleep_
     --------
     predicted_score : float
     """
-    # Create input array
     input_data = np.array([[study_hours, previous_score, attendance, sleep_hours, extracurricular]])
     
-    # Scale the input
     input_scaled = scaler.transform(input_data)
     
-    # Make prediction
     predicted_score = model.predict(input_scaled)[0]
     
-    # Ensure score is between 0-100
     predicted_score = max(0, min(100, predicted_score))
     
     return predicted_score
