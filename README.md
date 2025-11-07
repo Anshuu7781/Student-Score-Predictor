@@ -12,7 +12,7 @@ A Machine Learning web application that predicts student final exam scores based
 
 ## 🛠️ Technology Stack
 
-- **Python 3.x**
+- **Python **
 - **Streamlit** - Web Framework
 - **Scikit-learn** - Machine Learning
 - **Pandas & NumPy** - Data Processing
