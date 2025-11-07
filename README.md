@@ -65,15 +65,10 @@ The model predicts scores based on:
 1. **🏠 Home**: Overview and quick statistics
 2. **🔮 Predict Score**: Interactive prediction interface
 3. **📈 Data Analytics**: Visualizations and insights
-4. **ℹ️ About**: Project information and details
 
 ## 🤝 Contributing
 
 Feel free to fork this project and submit pull requests for improvements!
-
-## 📄 License
-
-This project is created for educational purposes.
 
 ## 👨‍💻 Author
 
