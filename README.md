@@ -18,27 +18,6 @@ A Machine Learning web application that predicts student final exam scores based
 - **Pandas & NumPy** - Data Processing
 - **Plotly** - Interactive Visualizations
 
-## 📁 Project Structure
-```
-Student_Score_Prediction/
-│
-├── data/
-│   └── student_data.csv          # Dataset
-│
-├── models/
-│   ├── model.pkl                 # Trained model
-│   └── scaler.pkl                # Feature scaler
-│
-├── src/
-│   ├── data_preparation.py       # Data preprocessing
-│   ├── model_training.py         # Model training
-│   └── prediction.py             # Prediction functions
-│
-├── app.py                        # Main Streamlit app
-├── generate_data.py
-├── requirements.txt              # Dependencies
-└── README.md                     # Documentation
-```
 
 ## 🚀 Installation & Setup
 
