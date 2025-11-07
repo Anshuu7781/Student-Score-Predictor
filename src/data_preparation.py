@@ -26,12 +26,10 @@ def prepare_features(df):
 
 def split_and_scale_data(X, y, test_size=0.2, random_state=42):
     """Split data into train/test sets and scale features"""
-    # Split the data
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=test_size, random_state=random_state
     )
     
-    # Scale the features
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
