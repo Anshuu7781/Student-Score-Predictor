@@ -35,6 +35,7 @@ Student_Score_Prediction/
 │   └── prediction.py             # Prediction functions
 │
 ├── app.py                        # Main Streamlit app
+├── generate_data.py
 ├── requirements.txt              # Dependencies
 └── README.md                     # Documentation
 ```
