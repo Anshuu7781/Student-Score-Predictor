@@ -12,7 +12,7 @@ A Machine Learning web application that predicts student final exam scores based
 
 ## 🛠️ Technology Stack
 
-- **Python **
+- **Python**
 - **Streamlit** - Web Framework
 - **Scikit-learn** - Machine Learning
 - **Pandas & NumPy** - Data Processing
@@ -77,7 +77,7 @@ This project is created for educational purposes.
 
 ## 👨‍💻 Author
 
-Built with ❤️ as a Machine Learning learning project
+**Built by Ansh Srivastava.**
 
 ---
 
